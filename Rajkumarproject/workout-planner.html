@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Planner - FitLife Gym</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .workout-container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="workout-container">
+        <!-- Navigation -->
+        <nav class="workout-nav">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <h1><i class="fas fa-dumbbell"></i> Workout Planner</h1>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="workout-content">
+            <!-- Workout Form Section -->
+            <section class="workout-form-section">
+                <h2><i class="fas fa-plus-circle"></i> Create New Workout Plan</h2>
+                <form id="workoutForm" class="workout-form">
+                    <div class="form-group">
+                        <label for="exercise"><i class="fas fa-running"></i> Exercise</label>
+                        <select id="exercise" required>
+                            <option value="">Select Exercise</option>
+                            <option value="pushups">Push-ups <i class="fas fa-hand-paper"></i></option>
+                            <option value="squats">Squats <i class="fas fa-walking"></i></option>
+                            <option value="plank">Plank <i class="fas fa-stopwatch"></i></option>
+                            <option value="lunges">Lunges <i class="fas fa-shoe-prints"></i></option>
+                            <option value="burpees">Burpees <i class="fas fa-fire"></i></option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sets"><i class="fas fa-layer-group"></i> Sets</label>
+                            <input type="number" id="sets" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reps"><i class="fas fa-sync"></i> Reps</label>
+                            <input type="number" id="reps" min="1" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration"><i class="fas fa-clock"></i> Duration (minutes)</label>
+                        <input type="number" id="duration" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date"><i class="fas fa-calendar-alt"></i> Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes"><i class="fas fa-sticky-note"></i> Notes</label>
+                        <textarea id="notes" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn primary"><i class="fas fa-plus"></i> Add Exercise</button>
+                </form>
+            </section>
+
+            <!-- Saved Plans Section -->
+            <section class="saved-plans-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-clipboard-list"></i> Saved Workout Plans</h2>
+                    <div class="action-buttons">
+                        <button id="printBtn" class="btn secondary"><i class="fas fa-print"></i> Print</button>
+                        <button id="saveBtn" class="btn primary"><i class="fas fa-save"></i> Save as PDF</button>
+                    </div>
+                </div>
+
+                <div class="plans-table-container">
+                    <table id="workoutTable">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-calendar"></i> Date</th>
+                                <th><i class="fas fa-running"></i> Exercise</th>
+                                <th><i class="fas fa-layer-group"></i> Sets</th>
+                                <th><i class="fas fa-sync"></i> Reps</th>
+                                <th><i class="fas fa-clock"></i> Duration</th>
+                                <th><i class="fas fa-fire"></i> Calories</th>
+                                <th><i class="fas fa-cogs"></i> Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="workoutTableBody">
+                            <!-- Table content will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="workout-planner.js"></script>
+</body>
+</html> 
